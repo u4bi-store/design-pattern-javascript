@@ -29,7 +29,7 @@ console.log(Sungjin.sayName()+ ' '+ Sungjin.greet(Myungjae));
 /*
   내 이름은 명재 유
   내 이름은 철수 유 안녕! 명재
-	내 이름은 철수 김 안녕! 명재
+  내 이름은 철수 김 안녕! 명재
 */
 
 console.log(Chulsoo.__proto__ === Myungjae); /* true*/
