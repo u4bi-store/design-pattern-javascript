@@ -102,25 +102,30 @@ Coffee.chocolate = function(coffeeObj){
 };
 
 
-Coffee.mocha = function(coffeeObj){
-  Coffee.milk(coffeeObj);
-  Coffee.foam(coffeeObj);
-  Coffee.chocolate(coffeeObj);
+/* 커피 객체에 모카 펀션 지정 인수로 커피 객체를 받음 */
+Coffee.mocha = function(coffeeObj){ 
+  Coffee.milk(coffeeObj); /* 인수로 받은 커피 객체에 밀크를 넣고 */
+  Coffee.foam(coffeeObj); /* 인수로 받은 커피 객체에 폼을 넣고 */
+  Coffee.chocolate(coffeeObj); /* 인수로 받은 커피 객체에 초콜렛을 넣었다 */
 
-  var cost = coffeeObj.cost();
+  var cost = coffeeObj.cost(); /* 인수로 받은 커피 객체의 cost()를 cost로 지정 */
   
-  coffeeObj.cost = function (){
+  coffeeObj.cost = function (){ /* 코스트를 재정의하여 가격을 반환함 */
     return cost;
   };
 };
 
 var coffee = new Coffee();/* 커피변수에 커피 객체 선언함 */
-var mocha = new Coffee();
+var mocha = new Coffee(); /* 모카변수에 커피 객체 선언함 */
 
-Coffee.large(coffee);
-Coffee.whippedCream(coffee);
-console.log('커피 가격 : '+coffee.cost()); /* 커피 가격 : 6.15 */
+Coffee.large(coffee); /* 커피 변수에 정의내려진 객체에 라지 사이즈를 덧붙힌다 */
+Coffee.whippedCream(coffee); /* 커피 변수에 정의내려진 객체에 휘핑크림을 덧붙힌다 */
+console.log('커피 가격 : '+coffee.cost()); /* 커피의 가격을 반환 받음 */
+/* 커피 가격 : 6.15 */
 
-Coffee.medium(mocha);
-Coffee.mocha(mocha);
-console.log('모카 가격 : '+mocha.cost()); /* 모카 가격 : 5.4500000000001 */
+Coffee.medium(mocha); /* 모카 변수에 정의내려진 객체에 미디움 사이즈를 덧붙힌다 */
+Coffee.mocha(mocha); /* 모카 변수에 정의내려진 객체에 모카를 덧붙힌다 */
+/* 모카 펀션에는 이미 밀크, 폼 초콜렛이 덧붙혀져 정의되어 있음 */
+
+console.log('모카 가격 : '+mocha.cost()); /* 모카의 가격을 반환 받음 */
+/* 모카 가격 : 5.4500000000001 */
