@@ -32,20 +32,27 @@ var Chulsoo = Object.create(Myungjae, {
   }
 });
 
+/* 성진이라는 객체를 만듬 철수를 지정 후에 펄스트네임과 라스트 네임을 지정함
+   철수의 객체 속성을 가지니, great 컨테이너 펀션도 사용 가능함
+*/
 var Sungjin = Object.create(Chulsoo, {
   fisrtName : {value : '성진'},
   lastName : {value : '김'}
 });
 
-console.log(Myungjae.sayName());
-console.log(Chulsoo.sayName()+ ' '+ Chulsoo.greet(Myungjae));
-console.log(Sungjin.sayName()+ ' '+ Sungjin.greet(Myungjae));
+console.log(Myungjae.sayName()); /* 명재가 이름을 말함 */
+console.log(Chulsoo.sayName()+ ' '+ Chulsoo.greet(Myungjae)); /* greet펀션의 인자로 명재객체를 넣음 */
+console.log(Sungjin.sayName()+ ' '+ Sungjin.greet(Myungjae)); /* greet펀션의 인자로 명재객체를 넣음 */
 /*
   내 이름은 명재 유
-  내 이름은 철수 유 안녕! 명재
-  내 이름은 철수 김 안녕! 명재
+  내 이름은 철수 유 오? 안녕! 명재
+  내 이름은 철수 김 오? 안녕! 명재
 */
 
 console.log(Chulsoo.__proto__ === Myungjae); /* true*/
+/* 철수의 프로토타입과 명재는 같음 */
+
 console.log(Sungjin.__proto__ === Myungjae); /* false*/
+/* 성진이와 명재의 프로토타입은 다름 철수한테 왔으니깐 */
 console.log(Sungjin.__proto__ === Chulsoo); /* true*/
+/* 성진이와 철수는 같겠죠. */
