@@ -13,23 +13,50 @@
    예로 commonJS, AMD의 그 근간이 모듈 패턴임
 */
 
-var dom = { /* 돔이라는 객체 생성 */
-    _counter : 0, /* 아이디값에 주입할 카운터 0으로 초기화 */
-    generateId : function(){ /* 아이디값을 반환하는 펀션 */
-        return "아이디값주입" + this._counter++;
-    },
-    create :  function(tagName, id){ /* 돔을 만드는 펀션 */
-        var el = document.createElement(tagName); /* div 태그 생성함 */
+/* https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures
+*/
+var dom = ( /* 클로저로 지정 */
+    function(){
+        
+        var _counter = 0; /* 아이디값에 주입할 카운터 0으로 초기화 */
 
-        el.id = id || this.generateId();
-        /* 해당 div 태그의 id를 지정함
+        return{
+            generateId: function(){ /* 아이디값을 반환하는 펀션 */
+                return "아이디값주입" + _counter++;
+            },
+            create: function (tagName, id){ /* 돔을 만드는 펀션 */
+                var el = document.createElement(tagName); /* div 태그 생성함 */
 
-        만약 두번째 인자에 즉 id가 넘어온다면 id로 지정
-        두번째 인자가 넘어오지 않는다면 generateId값으로 지정 */
+                el.id = id || this.generateId(); /* 해당 div 태그의 id를 지정함
+                
+                만약 두번째 인자에 즉 id가 넘어온다면 id로 지정
+                두번째 인자가 넘어오지 않는다면 generateId값으로 지정 */
 
-        return el; /* 정의된 el을 반환함 */
+                return el; /* 정의된 el을 반환함 */
+            }
+
+        };
     }
-}
+());
+
+/* 주석처리 */
+// var dom = { /* 돔이라는 객체 생성 */
+//     _counter : 0, /* 아이디값에 주입할 카운터 0으로 초기화 */
+//     generateId : function(){ /* 아이디값을 반환하는 펀션 */
+//         return "아이디값주입" + this._counter++;
+//     },
+//     create :  function(tagName, id){ /* 돔을 만드는 펀션 */
+//         var el = document.createElement(tagName); /* div 태그 생성함 */
+
+//         el.id = id || this.generateId();
+//         /* 해당 div 태그의 id를 지정함
+
+//         만약 두번째 인자에 즉 id가 넘어온다면 id로 지정
+//         두번째 인자가 넘어오지 않는다면 generateId값으로 지정 */
+
+//         return el; /* 정의된 el을 반환함 */
+//     }
+// }
 
 var divA = dom.create('div');
 console.log(divA.id); /* 아이디값주입0 */
