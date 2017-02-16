@@ -7,8 +7,8 @@ obj.c = '세번째 씨';
 obj['d'] = '네번째 디';
 
 
-var temp_a = obj['a'];
-var temp_b = obj.b;
+var tempA = obj['a'];
+var tempB = obj.b;
 
 Object.defineProperty(obj, 'e', {
   value : 'u4bi_e'
@@ -23,10 +23,10 @@ Object.defineProperties(obj, {
   }
 });
 
-console.log('temp a : '+temp_a);
-console.log('temp b : '+temp_b);
-/* temp a : u4bi_a
-   temp b : u4bi_b
+console.log('템프 에이에 담긴 값 : '+tempA);
+console.log('템프 비에 담긴 값 : '+tempB);
+/* tempA : 첫번째 에이
+   tempB : 두번째 비
 */
 
 console.log(obj);
