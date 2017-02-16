@@ -20,21 +20,24 @@ var dom = ( /* 클로저로 지정 */
         
         var _counter = 0; /* 아이디값에 주입할 카운터 0으로 초기화 */
 
-        return{
-            generateId: function(){ /* 아이디값을 반환하는 펀션 */
+        function generateId(){ /* 아이디값을 반환하는 펀션 */
                 return "아이디값주입" + _counter++;
-            },
-            create: function (tagName, id){ /* 돔을 만드는 펀션 */
-                var el = document.createElement(tagName); /* div 태그 생성함 */
+        }
 
-                el.id = id || this.generateId(); /* 해당 div 태그의 id를 지정함
-                
-                만약 두번째 인자에 즉 id가 넘어온다면 id로 지정
-                두번째 인자가 넘어오지 않는다면 generateId값으로 지정 */
+        function create(tagName, id){ /* 돔을 만드는 펀션 */
+            var el = document.createElement(tagName); /* div 태그 생성함 */
 
-                return el; /* 정의된 el을 반환함 */
-            }
+            el.id = id || this.generateId(); /* 해당 div 태그의 id를 지정함
+            
+            만약 두번째 인자에 즉 id가 넘어온다면 id로 지정
+            두번째 인자가 넘어오지 않는다면 generateId값으로 지정 */
 
+            return el; /* 정의된 el을 반환함 */
+        }
+
+        return{ /* 리턴 */
+            generateId: generateId,
+            create: create
         };
     }
 ());
