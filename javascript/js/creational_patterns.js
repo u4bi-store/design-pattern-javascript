@@ -1,10 +1,11 @@
 var obj = {
-  a: 'u4bi_a',
-  b: 'u4bi_b'
+  a: '첫번째 에이',
+  b: '두번째 비'
 };
 
-obj.c = 'u4bi_c';
-obj['d'] = 'u4bi_d';
+obj.c = '세번째 씨';
+obj['d'] = '네번째 디';
+
 
 var temp_a = obj['a'];
 var temp_b = obj.b;
