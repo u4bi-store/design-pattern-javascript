@@ -1,4 +1,4 @@
-var dom = (function(){ /* 클루저로 펀션 만들어줌 */
+var dom = (function(){ /* 클루저로 펀션 만들어줌 IIFE패턴형식*/
 
     var _counter = 0; /* 카운터 */
     var instance; /* 싱글톤을 제어할 인스턴스 */

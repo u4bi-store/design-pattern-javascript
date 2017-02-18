@@ -23,7 +23,7 @@ Coffee.small = function(coffeeObj){
 
 /* 커피 객체에 미디엄 펀션 지정 인수로 커피객체 받음 */
 Coffee.medium = function(coffeeObj){ }; /* 엠티 펀션을 만들어줌 */
-/* 미디엄은 따로 덧붙힐 구성이 없음 기본 정의된 속성을 반홤 */
+/* 미디엄은 따로 덧붙힐 구성이 없음 기본 정의된 속성을 반환 */
 
 /* 커피 객체에 라지 펀션 지정 인수로 커피객체 받음 */
 Coffee.large = function(coffeeObj){
