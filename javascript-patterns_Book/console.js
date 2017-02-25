@@ -17,4 +17,6 @@ console.dir(obj);
 /* 결과 :
 	u4bi 1 {} [ 1, 2, 3 ] { one: 1, two: { three: 3 } }
 	{ one: 1, two: { three: 3 } }
+  
+  log()는 node.js상 찍어볼 시 열거됨
 */
