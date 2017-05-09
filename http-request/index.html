@@ -1,0 +1,38 @@
+<!doc html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>http request pure</title>
+    </head>
+    <body>
+
+        <script>
+
+            function httpGet(Url, callback){
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", Url, false); // true async request
+                
+                if(callback) callback(xmlHttp);
+
+                xmlHttp.send(null);
+
+                return JSON.parse(xmlHttp.responseText);
+            }
+            
+        </script>
+
+        <script>
+
+            // var data = httpGet('', function(xhr){
+            //     xhr.setRequestHeader("", "");
+            //     xhr.setRequestHeader("", "");
+            // });
+
+            var data = httpGet('https://api.github.com/users/u4bi');
+            
+
+            console.log(data);
+        
+        </script>
+    </body>
+</html>
