@@ -1,0 +1,54 @@
+<!doc html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jsonp pure</title>
+    </head>
+    <body>
+
+        <script>
+
+            var jsonp = {  
+                currentScript: null,  
+                getJSON: function(url, data, callback) {
+                
+                var src = url + (url.indexOf("?")+1 ? "&" : "?"),
+                    head = document.getElementsByTagName("head")[0],
+                    newScript = document.createElement("script"),
+                    params = [],
+                    param_name = ""
+
+                this.jsonCallback = callback;
+
+                data["callback"] = "jsonp.jsonCallback";
+
+                for(param_name in data){
+                    params.push(param_name + "=" + encodeURIComponent(data[param_name]));  
+                }
+                
+                src += params.join("&")
+
+                newScript.type = "text/javascript";  
+                newScript.src = src;
+
+                if(this.currentScript) head.removeChild(currentScript);
+                head.appendChild(newScript);
+                },
+                jsonCallback: null
+            };
+
+        </script>
+
+        <script>
+
+            var url = "https://api.github.com/users/u4bi";
+            // var url = "http://localhost:8080/js-patt/jsonp/data.json";
+
+            var data = {};
+            var callback = function(data){ console.log(data)};
+
+            jsonp.getJSON(url, data, callback);
+
+        </script>
+    </body>
+</html>
