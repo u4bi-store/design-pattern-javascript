@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> promise </title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+
+        <script>
+
+            var data = true;
+
+            var 
+                promise = new Promise(function(resolve, reject){
+                    
+                    if (data) {
+                        resolve('A');
+                        
+                    } else {
+                        reject(Error('error'));
+
+                    }
+                    
+                });
+
+                promise.then(function(result){
+                    console.log('promise 성공 ', result);
+
+                }, function(err){
+                    console.error('promise 오류 ', err);
+
+                });
+
+                /*
+                    promise 성공  A
+
+                */
+
+        </script>
+
+        <script>
+            
+            function get(value){
+
+                return new Promise(function(resolve, reject){
+                    
+                    if (data) {
+                        resolve(value);
+                        
+                    } else {
+                        reject(Error('error'));
+
+                    }
+                    
+                });
+            }
+
+
+            get('B').then(function(resp){
+                console.log('get.then() 성공 ', resp);
+
+            }, function(error){
+                console.error('get.then() 오류 ', error);
+
+            });
+
+            /*
+                get.then() 성공  B
+                
+            */
+            
+
+        </script>
+    </body>
+</html>
