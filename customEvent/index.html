@@ -6,35 +6,32 @@
     </head>
     <body>
         
-        <button id="typing" onclick="clickEvent();">클릭</button>
+        <button id="typing" onclick="goodEvent(this);">good 이벤트 클릭</button>
 
         <script>
 
-        </script>
-
-        <script>
-
-            var 
-                typing = document.getElementById('typing');
-            
-            typing.addEventListener("good", function(e){
-                console.info("data ", e.detail);
-
-            });
-
-            function clickEvent(){
+            function goodEvent(element){
                 
-                var 
-                    event = new CustomEvent("good", {
+                var event = new CustomEvent("good", {
                         detail : {
                             name : "u4bi",
                             age  : 14
                         }
                     });
-                                
-                typing.dispatchEvent(event);
+
+                element.dispatchEvent(event);
             }
 
+        </script>
+        <script>
+
+            var 
+                typing = document.getElementById('typing');
+
+            typing.addEventListener("good", function(e){
+                console.info("data ", e.detail);
+                
+            });
 
         </script>
     </body>
