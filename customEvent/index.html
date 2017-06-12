@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>custom event</title>
+    </head>
+    <body>
+        
+        <button id="typing" onclick="clickEvent();">클릭</button>
+
+        <script>
+
+        </script>
+
+        <script>
+
+            var 
+                typing = document.getElementById('typing');
+            
+            typing.addEventListener("good", function(e){
+                console.info("data ", e.detail);
+
+            });
+
+            function clickEvent(){
+                
+                var 
+                    event = new CustomEvent("good", {
+                        detail : {
+                            name : "u4bi",
+                            age  : 14
+                        }
+                    });
+                                
+                typing.dispatchEvent(event);
+            }
+
+
+        </script>
+    </body>
+</html>
